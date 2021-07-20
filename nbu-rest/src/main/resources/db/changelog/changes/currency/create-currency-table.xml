@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="nbu" id="1">
+        <createTable tableName="currency">
+            <column name="alias" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rate" type="DECIMAL" defaultValue="0.0"/>
+            <column name="updated" type="TIMESTAMP">
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="currency"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
